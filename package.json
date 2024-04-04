@@ -1,0 +1,20 @@
+{
+  "name": "itrustld-email-service",
+  "version": "1.0.0",
+  "description": "Itrustld - Backend: Email Microservice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Coduza",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "googleapis": "^130.0.0",
+    "is-empty": "^1.2.0",
+    "nodemailer": "^6.9.8",
+    "validator": "^13.11.0"
+  }
+}

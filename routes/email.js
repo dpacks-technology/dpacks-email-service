@@ -52,47 +52,29 @@ router.route('/send').post((req, res, next) => {
             let mailOptions = {
                 from: FROM_EMAIL,
                 to: to,
-                subject: 'iTrustLD - ' + subject,
+                subject: 'DPacks - ' + subject,
                 html:
-                subject === "Email Verification" ?
-                    '<div>' +
-                    '<div style="width: 90%; height:100%; background-color: rgb(224,224,224); font-family: Arial; border-radius: 30px; text-align: center; color: #000; padding: 60px 20px 60px;">' +
-                    '<h1 style="margin-bottom: 10px">iTrustLD</h3>' +
-                    '<p style="font-size: 14px">Dear User,</p>' +
-                    '<p style="font-size: 14px">Welcome to iTrustLD, and thank you for your registration!</p>' +
-                    '<p style="font-size: 14px">To proceed with your account setup and ensure the security of your information, please use the verification code below to verify your account:</p>' +
-                    '<h1>Verification Code: ' + message + '</h1>' +
-                    '<p style="font-size: 14px">' + 'This code is valid for 24 hours and must be entered to activate your iTrustLD account. Following verification, we kindly request you to upload the necessary documents to complete your verification process.' + '</p>' +
-                    '<p style="font-size: 14px">' + 'Should you encounter any issues or have any questions, please feel free to reach out to our support team for assistance.' + '</p>' +
-                    '<p style="font-size: 14px">' + 'We\'re delighted to have you on board and look forward to serving your needs.' + '</p>' +
-                    '<p style="font-size: 14px">' + 'Warm regards,' + '</p>' +
-                    '<p style="font-size: 14px">' + 'The iTrustLD Team' + '</p>' +
-                    '<br/><br/>' +
-                    '<p><b>Please note: This is an automatically generated email; replies to this email will not be monitored or answered. For support, please visit our contact page.</b></p>' +
-                    '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' iTrustLD</p>' +
-                    '</div>' +
-                    '</div>' :
                     size === "sm" ?
                         '<div>' +
                         '<div style="width: 90%; height:100%; background-color: rgb(224,224,224); font-family: Arial; border-radius: 30px; text-align: center; color: #000; padding: 60px 20px 60px;">' +
-                        '<h1 style="margin-bottom: 10px">iTrustLD</h3>' +
+                        '<h1 style="margin-bottom: 10px">DPacks</h3>' +
                         '<p style="font-size: 14px">' + message + '</p>' +
-                        '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' iTrustLD</p>' +
+                        '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' DPacks</p>' +
                         '</div>' +
                         '</div>' :
                         size === "md" ?
                             '<div>' +
                             '<div style="width: 90%; height:100%; background-color: rgb(224,224,224); font-family: Arial; border-radius: 30px; text-align: center; color: #000; padding: 60px 20px 60px;">' +
-                            '<h1 style="margin-bottom: 10px">iTrustLD</h3>' +
+                            '<h1 style="margin-bottom: 10px">DPacks</h3>' +
                             '<p style="font-size: 24px">' + message + '</p>' +
-                            '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' iTrustLD</p>' +
+                            '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' DPacks</p>' +
                             '</div>' +
                             '</div>' :
                             '<div>' +
                             '<div style="width: 90%; height:100%; background-color: rgb(224,224,224); font-family: Arial; border-radius: 30px; text-align: center; color: #000; padding: 60px 20px 60px;">' +
-                            '<h1 style="margin-bottom: 10px">iTrustLD</h3>' +
+                            '<h1 style="margin-bottom: 10px">DPacks</h3>' +
                             '<p style="font-size: 32px">' + message + '</p>' +
-                            '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' iTrustLD</p>' +
+                            '<p style="margin-top: 20px; font-size: 8px">©' + new Date().getFullYear() + ' DPacks</p>' +
                             '</div>' +
                             '</div>'
             };

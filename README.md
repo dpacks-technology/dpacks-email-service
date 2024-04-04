@@ -1,2 +1,2 @@
-# itrustld-email-service
- Itrustld - Backend: Email Microservice
+# dpacks-email-service
+ DPacks - Backend: Email Microservice

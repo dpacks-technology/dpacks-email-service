@@ -1,7 +1,7 @@
 {
-  "name": "itrustld-email-service",
+  "name": "dpacks-email-service",
   "version": "1.0.0",
-  "description": "Itrustld - Backend: Email Microservice",
+  "description": "DPacks - Backend: Email Microservice",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

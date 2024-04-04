@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB
 app.get('/', (req, res) => {
-    res.send('Email Microservice - iTrustLD')
+    res.send('Email Microservice - DPacks')
 })
 
 // Rotes

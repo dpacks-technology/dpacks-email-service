@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest  # Replace with a suitable runner OS if needed
 
     steps:
-      - uses: actions/checkout@v3  # Checkout code from the repository
+      - uses: actions/checkout@v4  # Checkout code from the repository
 
       - name: Set up Google Cloud authentication
         uses: google-github-actions/setup-gcloud@v0  # Install and configure gcloud CLI
@@ -28,4 +28,7 @@ jobs:
         run: |
           gcloud compute ssh instance-20240404-044314 --command="
             docker pull dpacks-email-service:latest
+            docker stop dpacks-email-service
+            docker rm dpacks-email-service
             docker run -d --name dpacks-email-service dpacks-email-service:latest"
+

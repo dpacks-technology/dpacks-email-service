@@ -22,4 +22,4 @@ jobs:
       run: |
         gcloud compute instances update-container instance-20240404-044314 \
           --zone=asia-south1-a \
-          --container-image=gcr.io/coduza-hr/dp-email-service:latest
+          --container-image=gcr.io/coduza-hr/github.com/dpacks-technology/dpacks-email-service:latest

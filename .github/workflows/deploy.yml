@@ -21,7 +21,6 @@ jobs:
 #          gcloud auth configure-docker asia-south1-docker.pkg.dev
 #          docker build -t asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest .
 #          docker push asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest
-
       - name: Deploy to GCE
         run: |
           gcloud compute ssh instance-20240404-044314 --zone=asia-south1-a --command="

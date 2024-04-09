@@ -24,15 +24,4 @@ jobs:
 
       - name: Deploy to GCE
         run: |
-            gcloud compute instances create-with-container dpacks-email-service \
-                --container-image=asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest \
-                --container-env=NODE_ENV=production \
-                --container-env=PORT=4005 \
-                --container-env=API_KEY=${{ secrets.SENDGRID_API_KEY }} \
-                --container-env=GOOGLE_API_CLIENT_ID=${{ secrets.GOOGLE_API_CLIENT_ID }} \
-                --container-env=GOOGLE_API_CLIENT_SECRET=${{ secrets.GOOGLE_API_CLIENT_SECRET }} \
-                --container-env=GOOGLE_API_REDIRECT_URL=${{ secrets.GOOGLE_API_REDIRECT_URL }} \
-                --container-env=GOOGLE_API_REFRESH_TOKEN=${{ secrets.GOOGLE_API_REFRESH_TOKEN }} \
-                --container-env=GOOGLE_API_SERVICE=${{ secrets.GOOGLE_API_SERVICE }} \
-                --container-env=GOOGLE_API_TYPE=${{ secrets.GOOGLE_API_TYPE }} \
-                --container-env=GOOGLE_API_USER=${{ secrets.GOOGLE_API_USER }} \
+          gcloud compute ssh instance-20240404-044314 --zone=asia-south1-a --command="

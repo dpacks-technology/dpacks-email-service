@@ -31,4 +31,14 @@ jobs:
             sudo docker stop dpacks-email-service
             sudo docker rm dpacks-email-service
             sudo docker build -t dpacks-email-service:latest .
-            sudo docker run -d --name dpacks-email-service -p 4005:4005 dpacks-email-service:latest"
+            sudo docker run -d --name dpacks-email-service -p 4005:4005 
+               -e VAR2=${{ secrets.API_KEY }}
+               -e VAR2=${{ secrets.PORT }}
+               -e VAR2=${{ secrets.GOOGLE_API_CLIENT_ID }}
+               -e VAR2=${{ secrets.GOOGLE_API_CLIENT_SECRET }}
+               -e VAR2=${{ secrets.GOOGLE_API_REDIRECT_URL }}
+               -e VAR2=${{ secrets.GOOGLE_API_REFRESH_TOKEN }}
+               -e VAR2=${{ secrets.GOOGLE_API_SERVICE }}
+               -e VAR2=${{ secrets.GOOGLE_API_TYPE }}
+               -e VAR2=${{ secrets.GOOGLE_API_USER }}
+               dpacks-email-service:latest"

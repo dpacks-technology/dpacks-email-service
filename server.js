@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 // port
-const port = 4005;
+const port = process.env.PORT || 4005
 
 // routes
 const email = require("./routes/email");

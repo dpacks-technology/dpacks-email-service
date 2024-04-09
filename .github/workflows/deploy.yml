@@ -16,11 +16,13 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Build Docker image
-        uses: docker/build-action@v3  # Build the Docker image using your Dockerfile
-        with:
-          context: .  # Build context (replace if your Dockerfile is in a different location)
-          tags: dpacks-email-service:latest
+      - name: Configure Docker to use the gcloud command-line tool as a credential helper
+        run: | 
+            gcloud auth configure-docker
+
+      - name: Build the Docker image
+        run: |
+          docker build -t dpacks-email-service:latest .
 
       - name: Deploy to GCE
         run: |

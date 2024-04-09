@@ -27,8 +27,8 @@ jobs:
       - name: Deploy to GCE
         run: |
           gcloud compute ssh instance-20240404-044314 --zone=asia-south1-a --command="
-            docker pull dpacks-email-service:latest
-            docker stop dpacks-email-service
-            docker rm dpacks-email-service
-            docker run -d --name dpacks-email-service dpacks-email-service:latest"
+            sudo docker pull dpacks-email-service:latest
+            sudo docker stop dpacks-email-service
+            sudo docker rm dpacks-email-service
+            sudo docker run -d --name dpacks-email-service dpacks-email-service:latest"
 

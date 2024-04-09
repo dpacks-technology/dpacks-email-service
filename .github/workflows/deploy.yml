@@ -25,7 +25,10 @@ jobs:
       - name: Deploy to GCE
         run: |
           gcloud compute ssh instance-20240404-044314 --zone=asia-south1-a --command="
+            curl https://sdk.cloud.google.com | bash
+            source /root/google-cloud-sdk/path.bash.inc
+            gcloud auth configure-docker asia-south1-docker.pkg.dev
             sudo docker stop dpacks-email-service
             sudo docker rm dpacks-email-service
-            sudo docker pull ${{ secrets.ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/dpacks-email-service:latest
-            sudo docker run -d --name dpacks-email-service ${{ secrets.ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/dpacks-email-service:latest"
+            sudo docker pull asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest
+            sudo docker run -d --name dpacks-email-service asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest"

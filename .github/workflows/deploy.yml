@@ -18,9 +18,9 @@ jobs:
 
       - name: Build and push Docker image to Artifact Registry
         run: |
-          gcloud auth configure-docker ${{ secrets.ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev
-          docker build -t ${{ secrets.ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/dp/dpacks-email-service:latest .
-          docker push ${{ secrets.ARTIFACT_REGISTRY_LOCATION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/dp/dpacks-email-service:latest
+          gcloud auth configure-docker asia-south1-docker.pkg.dev
+          docker build -t asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest .
+          docker push asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest
 
       - name: Deploy to GCE
         run: |

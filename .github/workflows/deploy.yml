@@ -16,11 +16,11 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Build and push Docker image to Artifact Registry
-        run: |
-          gcloud auth configure-docker asia-south1-docker.pkg.dev
-          docker build -t asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest .
-          docker push asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest
+#      - name: Build and push Docker image to Artifact Registry
+#        run: |
+#          gcloud auth configure-docker asia-south1-docker.pkg.dev
+#          docker build -t asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest .
+#          docker push asia-south1-docker.pkg.dev/coduza-hr/dp/dpacks-email-service:latest
 
       - name: Deploy to GCE
         run: |

@@ -8,27 +8,4 @@ jobs:
     runs-on: ubuntu-latest  # Replace with a suitable runner OS if needed
 
     steps:
-      - uses: actions/checkout@v4  # Checkout code from the repository
-
-      - name: Set up Google Cloud authentication
-        uses: google-github-actions/setup-gcloud@v0  # Install and configure gcloud CLI
-        with:
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-
-      - name: Configure Docker to use the gcloud command-line tool as a credential helper
-        run: | 
-            gcloud auth configure-docker
-
-      - name: Build the Docker image
-        run: |
-          docker build -t dpacks-email-service:latest .
-
-      - name: Deploy to GCE
-        run: |
-          gcloud compute ssh instance-20240404-044314 --command="
-            docker pull dpacks-email-service:latest
-            docker stop dpacks-email-service
-            docker rm dpacks-email-service
-            docker run -d --name dpacks-email-service dpacks-email-service:latest"
-
+      - uses: mattes/gce-deploy-action@v5.0.0

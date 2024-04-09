@@ -22,15 +22,15 @@ jobs:
             sudo git clone https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_ACCESS_TOKEN }}@github.com/dpacks-technology/dpacks-email-service.git ./email
             cd email
             sudo git fetch origin && sudo git pull origin main
-            echo 'PORT=${{ secrets.PORT }}' > .env
-            echo 'API_KEY=${{ secrets.API_KEY }}' > .env
-            echo 'GOOGLE_API_SERVICE=${{ secrets.GOOGLE_API_SERVICE }}' >> .env
-            echo 'GOOGLE_API_TYPE=${{ secrets.GOOGLE_API_TYPE }}' >> .env
-            echo 'GOOGLE_API_USER=${{ secrets.GOOGLE_API_USER }}' >> .env
-            echo 'GOOGLE_API_CLIENT_ID=${{ secrets.GOOGLE_API_CLIENT_ID }}' >> .env
-            echo 'GOOGLE_API_CLIENT_SECRET=${{ secrets.GOOGLE_API_CLIENT_SECRET }}' >> .env
-            echo 'GOOGLE_API_REDIRECT_URL=${{ secrets.GOOGLE_API_REDIRECT_URL }}' >> .env
-            echo 'GOOGLE_API_REFRESH_TOKEN=${{ secrets.GOOGLE_API_REFRESH_TOKEN }}' >> .env
+            sudo echo 'PORT=${{ secrets.PORT }}' > .env
+            sudo echo 'API_KEY=${{ secrets.API_KEY }}' >> .env
+            sudo echo 'GOOGLE_API_SERVICE=${{ secrets.GOOGLE_API_SERVICE }}' >> .env
+            sudo echo 'GOOGLE_API_TYPE=${{ secrets.GOOGLE_API_TYPE }}' >> .env
+            sudo echo 'GOOGLE_API_USER=${{ secrets.GOOGLE_API_USER }}' >> .env
+            sudo echo 'GOOGLE_API_CLIENT_ID=${{ secrets.GOOGLE_API_CLIENT_ID }}' >> .env
+            sudo echo 'GOOGLE_API_CLIENT_SECRET=${{ secrets.GOOGLE_API_CLIENT_SECRET }}' >> .env
+            sudo echo 'GOOGLE_API_REDIRECT_URL=${{ secrets.GOOGLE_API_REDIRECT_URL }}' >> .env
+            sudo echo 'GOOGLE_API_REFRESH_TOKEN=${{ secrets.GOOGLE_API_REFRESH_TOKEN }}' >> .env
             sudo docker stop dpacks-email-service
             sudo docker rm dpacks-email-service
             sudo docker build -t dpacks-email-service:latest .

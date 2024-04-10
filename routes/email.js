@@ -51,7 +51,7 @@ router.route('/send').post((req, res, next) => {
             });
 
             let mailOptions = {
-                from: FROM_EMAIL,
+                from: '"DPacks Notifications" <' + FROM_EMAIL + '>',
                 to: to,
                 subject: 'DPacks - ' + subject,
                 html:

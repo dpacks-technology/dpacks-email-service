@@ -11,12 +11,12 @@ const email = require("./routes/email");
 const Keys = require("./config/Keys");
 
 //CORS
-const cors=require("cors");
-const corsOptions ={
+const cors = require("cors");
+const corsOptions = {
     origin: "*",
-    credentials:true,
+    credentials: true,
     //access-control-allow-credentials:true
-    optionSuccessStatus:200,
+    optionSuccessStatus: 200,
 }
 app.use(cors(corsOptions))
 

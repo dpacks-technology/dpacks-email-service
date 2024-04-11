@@ -48,4 +48,4 @@ Size can be `sm`, `md`, or `lg`
 4. Google OAuth2
 
 ## Copyright
-&copy; 2021 DPacks. All Rights Reserved.
+&copy; 2024 DPacks. All Rights Reserved.

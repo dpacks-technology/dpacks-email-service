@@ -1,0 +1,36 @@
+name: Deploy to Azure VM
+on:
+  push:
+    branches: [ main ]  # Trigger on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from the repository
+
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.AZURE_SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Azure VM
+        run: |
+          ssh -o StrictHostKeyChecking=no dpacks-prod@${{ secrets.AZURE_VM_IP }}
+            sudo git clone https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_ACCESS_TOKEN }}@github.com/dpacks-technology/dpacks-email-service.git ./email
+            cd email
+            sudo git fetch origin && sudo git pull origin main
+            echo 'PORT=${{ secrets.PORT }}' | sudo tee .env
+            echo 'API_KEY=${{ secrets.API_KEY }}' | sudo tee -a .env
+            echo 'GOOGLE_API_SERVICE=${{ secrets.GOOGLE_API_SERVICE }}' | sudo tee -a .env
+            echo 'GOOGLE_API_TYPE=${{ secrets.GOOGLE_API_TYPE }}' | sudo tee -a .env
+            echo 'GOOGLE_API_USER=${{ secrets.GOOGLE_API_USER }}' | sudo tee -a .env
+            echo 'GOOGLE_API_CLIENT_ID=${{ secrets.GOOGLE_API_CLIENT_ID }}' | sudo tee -a .env
+            echo 'GOOGLE_API_CLIENT_SECRET=${{ secrets.GOOGLE_API_CLIENT_SECRET }}' | sudo tee -a .env
+            echo 'GOOGLE_API_REDIRECT_URL=${{ secrets.GOOGLE_API_REDIRECT_URL }}' | sudo tee -a .env
+            echo 'GOOGLE_API_REFRESH_TOKEN=${{ secrets.GOOGLE_API_REFRESH_TOKEN }}' | sudo tee -a .env
+            sudo docker stop dpacks-email-service
+            sudo docker rm dpacks-email-service
+            sudo docker build -t dpacks-email-service:latest .
+            sudo docker run -d --name dpacks-email-service -p 4005:4005 dpacks-email-service:latest"
